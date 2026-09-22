@@ -1,11 +1,3 @@
-"""Real-world datasets and a strict train / validation / test split.
-
-The official test split of each dataset is held out as the *independent* test
-set: it is never used for fitting, normalisation statistics, early stopping or
-model selection. Validation data is carved (stratified) out of the official
-training split and is the only data used for training-time decisions.
-"""
-
 from dataclasses import dataclass
 
 import numpy as np
