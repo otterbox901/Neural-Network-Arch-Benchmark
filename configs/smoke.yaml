@@ -1,0 +1,8 @@
+# Minutes-long end-to-end check of the whole pipeline on a subset of real data.
+experiment_name: smoke
+dataset: fashion_mnist
+train_subset: 4000
+test_subset: 1000
+seeds: [42, 43]
+epochs: 3
+batch_size: 128

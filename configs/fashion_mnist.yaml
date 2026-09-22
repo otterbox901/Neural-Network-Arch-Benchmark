@@ -1,0 +1,9 @@
+# Faster benchmark: Fashion-MNIST (70k real 28x28 grayscale product photos).
+experiment_name: fashion_mnist
+dataset: fashion_mnist
+seeds: [42, 43, 44]
+architectures: [mlp, simple_cnn, vgg_small, resnet_small, mobilenet_small]
+epochs: 25
+augment: true
+augment_architectures: [simple_cnn, vgg_small, resnet_small, mobilenet_small]
+early_stopping_patience: 6

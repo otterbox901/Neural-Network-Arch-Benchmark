@@ -1,0 +1,29 @@
+# docker compose run --rm bench                         (GPU, CIFAR-10)
+# docker compose run --rm bench --config configs/smoke.yaml
+# docker compose run --rm bench-cpu --config configs/smoke.yaml
+services:
+  bench:
+    build: .
+    image: nn-arch-benchmark:gpu
+    volumes:
+      - ./data:/root/.keras:Z
+      - ./results:/app/results:Z
+      - ./configs:/app/configs:ro,Z
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  bench-cpu:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: docker.io/tensorflow/tensorflow:2.21.0
+    image: nn-arch-benchmark:cpu
+    volumes:
+      - ./data:/root/.keras:Z
+      - ./results:/app/results:Z
+      - ./configs:/app/configs:ro,Z

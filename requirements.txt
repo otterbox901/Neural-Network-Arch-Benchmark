@@ -1,0 +1,9 @@
+# tensorflow is provided by the base image (tensorflow/tensorflow:2.21.0[-gpu])
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+pyyaml
+tabulate
+pytest

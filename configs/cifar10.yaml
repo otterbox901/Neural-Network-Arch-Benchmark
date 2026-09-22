@@ -1,0 +1,19 @@
+# Main benchmark: CIFAR-10 (60k real 32x32 colour photos, 10 classes).
+# 45k train / 5k validation (stratified from the official train split),
+# 10k official test split held out as the independent test set.
+experiment_name: cifar10
+dataset: cifar10
+val_fraction: 0.1
+data_seed: 0
+seeds: [42, 43, 44]          # repeat with different inits to get mean ± std
+architectures: [mlp, simple_cnn, vgg_small, resnet_small, mobilenet_small]
+epochs: 40
+batch_size: 128
+learning_rate: 0.001
+weight_decay: 0.0001
+augment: true
+augment_architectures: [simple_cnn, vgg_small, resnet_small, mobilenet_small]
+select_metric: val_accuracy  # checkpoint / early stopping use validation only
+early_stopping_patience: 8
+lr_patience: 3
+test_eval_every: 1

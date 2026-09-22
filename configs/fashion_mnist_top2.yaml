@@ -1,0 +1,10 @@
+# Two-architecture head-to-head on full Fashion-MNIST, 10 seeds.
+# simple_cnn and mlp were the top two in the smoke run.
+experiment_name: fashion_mnist_top2
+dataset: fashion_mnist
+seeds: [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+architectures: [simple_cnn, mlp]
+epochs: 25
+augment: true
+augment_architectures: [simple_cnn]
+early_stopping_patience: 6
